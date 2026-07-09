@@ -10,6 +10,16 @@ handle = "Page\About"
 [resources]
 vars[activeNavLink] = "about"
 ==
-<div>
-    Hello
-</div>
+{% put headerAfter %}
+    <div class="container">
+        <div class="header-extra text-center">
+            <h1 class="mb-4">ok</h1>
+            <p class="lead">lol</p>
+        </div>
+    </div>
+{% endput %}
+<main class="header-flush">
+    {% for block in aboutpage.blocks %}
+        {% partial 'blocks/' ~ str_slug(block.type) block=block %}
+    {% endfor %}
+</main>
